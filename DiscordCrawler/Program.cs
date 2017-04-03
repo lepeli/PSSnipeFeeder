@@ -119,10 +119,20 @@ public async Task GotDisconnected(Exception e)  {
                 }
                 content = content + message.Content; 
                 Console.WriteLine(String.Format("Server: {0} Channel:  {1} Message:  {2}",configchannel.servername, configchannel.channelname, content));
-                Regex parserregex = new Regex(configchannel.parseregex);
-                Match m = parserregex.Match(content);
+                bool matched = false;
+                Regex parserregex = new Regex(configchannel.parseregex[0]);
+                Match m = parserregex.Match("");
+                foreach (string rule in configchannel.parseregex) {
+                    parserregex = new Regex(rule);
+                    m = parserregex.Match(content);
+                    if (m.Success) {
+                        matched = true;
+                        break;
+                    }
+                }
+               
                 //m = parserregex.Match("Exeggutor 100IV 40.013137,-75.106145 818CP L10 Zen Headbutt/Psychic");
-                if ( m.Success ) {
+                if ( matched ) {
                     CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
                     culture.NumberFormat.NumberDecimalSeparator = ".";
                     string PokemonName = m.Groups["name"].Value;

@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
+
 namespace PSSniperDiscordCrawler
 {
    
@@ -20,7 +21,9 @@ namespace PSSniperDiscordCrawler
        [JsonProperty("channel_name")]
        public string channelname { get; set; }
        [JsonProperty("parseregex")]
-       public string parseregex { get; set; }
+       public string[] parseregex ;
+
+       //public string parseregex { get; set; }
 
        [JsonProperty("filters")]
        public List<filter> filters { get; set; }

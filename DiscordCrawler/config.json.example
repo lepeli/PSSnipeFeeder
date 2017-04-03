@@ -5,7 +5,9 @@
         {
             "server_name": "Pokedex100",
             "channel_name":"100playground",
-            "parseregex": "(?<name>[^\\s]+)\\s(?<IV>[^IV]+)IV\\s(?<latitude>[^,]+),(?<longtitude>[^\\s]+)",
+            "parseregex": [
+                "(?<name>[^\\s]+)\\s(?<IV>[^IV]+)IV\\s(?<latitude>[^,]+),(?<longtitude>[^\\s]+)"
+            ]   
             "filters": [
                 {
                     "name_filter": "Lapras","minimum_iv" : 0.01 },
@@ -13,9 +15,11 @@
             ]
         },
         {
-            "server_name": "PokemonGO Tweaks",
-            "channel_name":"opulent-100iv",
-            "parseregex": "[^.*pokesniper2\\:]+/(?<name>[^.*]+)/(?<latitude>[^*]+),(?<longtitude>[^*]+)\\)(?<IV>[^*]+)\\?",
+            "server_name": "another-server",
+            "channel_name":"another-channe;",
+            "parseregex": [
+                "[^.*pokesniper2\\:]+/(?<name>[^.*]+)/(?<latitude>[^*]+),(?<longtitude>[^*]+)\\)(?<IV>[^*]+)\\?"
+            ]
             "filters": [
                 {
                     "name_filter": "Lapras","minimum_iv" : 0.01 },

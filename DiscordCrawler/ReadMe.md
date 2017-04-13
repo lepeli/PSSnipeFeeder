@@ -47,7 +47,7 @@ To test, check Table tab below Input field.
 # Usage
 ````
 cd DiscordCrawler
-dotner restore 
+dotnet restore 
 dotnet run
 ````
 
